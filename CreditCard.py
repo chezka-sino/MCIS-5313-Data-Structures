@@ -37,3 +37,12 @@ class CreditCard:
             print("New balance is", self._balance)
         else:
             raise ValueError('Invalid amount entered')
+
+    def to_string(self):
+        str_cc = "Customer:" + self._customer + "\n"
+        str_cc += "Bank:" + self._bank + "\n"
+        str_cc += "Account Number:" + self._account + "\n"
+        str_cc += "Balance:" + str(self._balance) + "\n"
+        str_cc += "Account Limit:" + str(self._limit) + "\n"
+
+        return str_cc

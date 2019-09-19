@@ -6,20 +6,27 @@ class Flower:
         self._numPetals = numPetals
         self._price = price
 
-        def get_name(self):
-            return self._name
+    def get_name(self):
+        return self._name
 
-        def get_numPetals(self):
-            return self._numPetals
+    def get_numPetals(self):
+        return self._numPetals
 
-        def get_price(self):
-            return self._price
+    def get_price(self):
+        return self._price
 
-        def set_name(self, new_name):
-            self._name = new_name
+    def set_name(self, new_name):
+        self._name = new_name
 
-        def set_numPetals(self, new_petals):
-            self._numPetals = new_petals
+    def set_numPetals(self, new_petals):
+        self._numPetals = new_petals
 
-        def set_price(self, new_price):
-            self._price = new_price
+    def set_price(self, new_price):
+        self._price = new_price
+
+    def to_string(self):
+        str_flower = "Name:" + self._name + "\n"
+        str_flower += "Number of Petals:" + str(self._numPetals) + "\n"
+        str_flower += "Price:" + str(self._price) + "\n"
+
+        return str_flower
