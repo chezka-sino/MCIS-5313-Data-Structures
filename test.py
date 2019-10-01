@@ -3,6 +3,7 @@ from Flower import Flower
 
 
 def test_flower_class(name, petals, price):
+    # Tests the getters and setters for the Flower class
     new_flower = Flower(name, petals, price)
     print("Current Flower attributes:")
     print(new_flower.to_string())
@@ -25,6 +26,7 @@ def test_flower_class(name, petals, price):
 
 
 def test_creditcard_class(cc, pay = 0):
+    # Tests the CreditCard class
 
     print("Current CC details:")
     print(cc.to_string())
