@@ -35,8 +35,6 @@ class LinkedList:
                             temp_link = currNode.link
                             currNode.link = new_node
                             new_node.link = temp_link
-                            print("temp_link:", temp_link.info, "| currNode:",
-                                  currNode.info, "| new_node:", new_node.info)
                             self.size += 1
                             return
 
