@@ -1,22 +1,28 @@
 def isOperator(symbol):
+    # checks if symbol is an operator
     operators = ['+', '-', '*', '/']
     return symbol in operators
 
 def isOperand(symbol):
+    # checks if symbol is an operand
     return symbol.isalpha()
 
 def isLeftParenthesis(symbol):
+    # checks if symbol is a left parenthesis
     return symbol == '('
 
 def isRightParenthesis(symbol):
+    # checks if symbol is a right parenthesis
     return symbol == ')'
 
 def reverseExpression(expression):
+    # reverses the expression for the stack operations
     expression = '(' + expression + ')'
     expression = expression[len(expression)::-1]
     return [symbol for symbol in expression]
 
 def hierarchy(symbol):
+    # checks the hierarchy of the operands
     switcher = {
         '*': 2,
         '/': 2,
@@ -27,6 +33,7 @@ def hierarchy(symbol):
     return switcher.get(symbol)
 
 def leftToRight(stackOperator, newOperator):
+    # checks for left to right associativity
     if newOperator == '/' and stackOperator == '*':
         return False
     elif newOperator == '*' and stackOperator == '/':
@@ -37,12 +44,14 @@ def leftToRight(stackOperator, newOperator):
         return False
 
 def infixToPostfix(expression):
-    # TODO infix to postfix converter
+    # converts the postfix expression to infix expression
     infix = reverseExpression(expression)
     operatorStack = []
     postfix = []
 
     while len(infix) > 0:
+        # iterates through the expression stack and adds to the infix expression stack
+        # accordingly
         symbol = infix.pop()
 
         if isOperand(symbol):
