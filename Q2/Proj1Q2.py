@@ -58,10 +58,12 @@ def infixToPostfix(expression):
                 postfix.append(topOperator)
                 topOperator = operatorStack.pop()
 
+
         if isOperator(symbol):
             topOperator = operatorStack.pop()
 
             if not isLeftParenthesis(topOperator):
+
                 if hierarchy(symbol) > hierarchy(topOperator):
                     operatorStack.append(topOperator)
                     operatorStack.append(symbol)
@@ -74,12 +76,13 @@ def infixToPostfix(expression):
                         operatorStack.append(topOperator)
                         operatorStack.append(symbol)
 
+                else:
+                    postfix.append(topOperator)
+                    operatorStack.append(symbol)
 
             else:
                 operatorStack.append(topOperator)
                 operatorStack.append(symbol)
-
-            print(operatorStack)
 
     return ''.join(postfix)
 
