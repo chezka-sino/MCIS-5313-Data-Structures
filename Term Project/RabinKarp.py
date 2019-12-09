@@ -1,5 +1,4 @@
 from Bio import SeqIO
-# from urllib.request import urlopen
 import time
 
 def calc_hash(text, d, q):
@@ -41,8 +40,6 @@ def search(pattern, string):
     return -1
 
 if __name__ == "__main__":
-    # TODO check if fasta site is up
-    # "https://hpc.csiro.au/users/317836/KELLY/BASE_Albany/reveg_16S/picrust/97_otus.fasta"
 
     fileName = "97_otus.fasta"
     pattern = "GGTAACGGCCCACCAAGGCGACGACGGGTAGCTGGTCTGAGAGGATGGCCAGCCACATTGGGACTG"
@@ -56,6 +53,8 @@ if __name__ == "__main__":
     # Start timer
     search_time = 0
 
+    print("Key Pattern looking for:", pattern, "\n")
+
     for fasta in fasta_iterator:
         name, sequence = fasta.id, str(fasta.seq)
         record_counter += 1
@@ -67,12 +66,9 @@ if __name__ == "__main__":
 
         index_match = search(pattern,sequence)
         if index_match >= 0:
-            # TODO results format
             num_found+=1
-            print('FOUND!')
+            print("key was found at", name, "(Line, column):", line_counter, ",", index_match)
             print("NAME:", name)
-            print("at line:", line_counter)
-            print("index:", index_match)
             print()
 
         end = time.time()
@@ -80,6 +76,5 @@ if __name__ == "__main__":
         # Add time to previous search time
         search_time+=end-start
 
-    print("DONE!")
-    print("Time:", search_time)
-    print("Found:", num_found)
+    print("Total Number of read:", record_counter)
+    print("Total execution time:", search_time)
